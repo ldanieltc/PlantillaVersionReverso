@@ -10,7 +10,6 @@ import android.widget.TextView;
 public class IfeTipoD extends Activity{
     String textoId = "IDMEX1836577170<<0747116375842\n8007057M1812315MEX<02<<12345<7\nGOMEZ<VELAZQUEZ<<MARGARITA<<<<";
     //String textoId = "IDMEX1836577170<<07471163758428007057M1812315MEX<02<<12345<7GOMEZ<VELAZQUEZ<<MARGARITA<<<<";
-
     TextView textViewTextoId;
     String cuadro3 = "EDMUNDO JACOBO MOLINA SECRETARIO EJECUTIVO DEL INSTITUTO FEDERAL ELECTORAL";
     TextView textoBajoFirma;
@@ -29,12 +28,18 @@ public class IfeTipoD extends Activity{
         textoBajoFirma.setText(cuadro3);
 
         textViewTextoId = (TextView) findViewById(R.id.textosal);
-        textViewTextoId.setText(textoId);
-
+        textViewTextoId.setText(codigo(textoId));
     }
 
-    public String codigo(String codigoIfe){
-        int caracteres = (codigoIfe.length())/3;
-                for()
+    public String codigo(String codigoIFE){
+        char[] c = codigoIFE.toCharArray();
+        String k = "";
+        for (int i = 0; i < codigoIFE.length(); i++) {
+            k += c[i];
+            if (i == 9 || i == 19) {
+                k += '\n';
+            }
+        }
+        return k;
     }
 }
